@@ -1,0 +1,112 @@
+{
+  "input": "demo/family-connect/economics/paid_months.json",
+  "data_status": "assumption",
+  "currency": "RUB",
+  "assumptions": {
+    "margin_per_paid_month": 500.0,
+    "plan_year_months": 12,
+    "baseline_gross_profit": 279000000.0,
+    "target_gross_profit": 285000000.0
+  },
+  "formulas": {
+    "retention_paid_months": "sum по когортам и месяцам k=1..(T-start+1): numbers * ((1-treated_churn)^k - (1-baseline_churn)^k)",
+    "new_number_paid_months": "sum по когортам и месяцам k=0..(T-start): numbers * (1-treated_churn)^k",
+    "net_contribution": "paid_months_total * margin_per_paid_month + other_annual_contribution - monthly_direct_cost * (T - direct_cost_start_month + 1)",
+    "paid_months_required_for_target": "(target_gross_profit - baseline_gross_profit - other_annual_contribution + direct_costs_in_year) / margin_per_paid_month"
+  },
+  "scenarios": [
+    {
+      "name": "основной: пилот с июля, все совместимые тарифы с октября",
+      "additional_paid_months_retention": 247.3,
+      "additional_paid_months_new_numbers": 237.1,
+      "additional_paid_months_total": 484.5,
+      "gross_contribution": 242240.57,
+      "direct_costs_in_year": 360000.0,
+      "net_contribution": -117759.43,
+      "projected_gross_profit": 278882240.57,
+      "gap_to_target": 6117759.43,
+      "paid_months_required_for_target": 12720.0,
+      "max_investment_recovered_within_year": 0.0
+    },
+    {
+      "name": "менее благоприятный: слабый эффект",
+      "additional_paid_months_retention": 61.7,
+      "additional_paid_months_new_numbers": 59.2,
+      "additional_paid_months_total": 121.0,
+      "gross_contribution": 60481.83,
+      "direct_costs_in_year": 360000.0,
+      "net_contribution": -299518.17,
+      "projected_gross_profit": 278700481.83,
+      "gap_to_target": 6299518.17,
+      "paid_months_required_for_target": 12720.0,
+      "max_investment_recovered_within_year": 0.0
+    },
+    {
+      "name": "нулевой эффект: только расходы",
+      "additional_paid_months_retention": 0.0,
+      "additional_paid_months_new_numbers": 0.0,
+      "additional_paid_months_total": 0.0,
+      "gross_contribution": 0.0,
+      "direct_costs_in_year": 360000.0,
+      "net_contribution": -360000.0,
+      "projected_gross_profit": 278640000.0,
+      "gap_to_target": 6360000.0,
+      "paid_months_required_for_target": 12720.0,
+      "max_investment_recovered_within_year": 0.0
+    },
+    {
+      "name": "только один тариф: расширения нет",
+      "additional_paid_months_retention": 92.2,
+      "additional_paid_months_new_numbers": 0.0,
+      "additional_paid_months_total": 92.2,
+      "gross_contribution": 46115.24,
+      "direct_costs_in_year": 360000.0,
+      "net_contribution": -313884.76,
+      "projected_gross_profit": 278686115.24,
+      "gap_to_target": 6313884.76,
+      "paid_months_required_for_target": 12720.0,
+      "max_investment_recovered_within_year": 0.0
+    },
+    {
+      "name": "предел удержания: отток падает до нуля на всех номерах с июля",
+      "additional_paid_months_retention": 6337.9,
+      "additional_paid_months_new_numbers": 0.0,
+      "additional_paid_months_total": 6337.9,
+      "gross_contribution": 3168957.97,
+      "direct_costs_in_year": 360000.0,
+      "net_contribution": 2808957.97,
+      "projected_gross_profit": 281808957.97,
+      "gap_to_target": 3191042.03,
+      "paid_months_required_for_target": 12720.0,
+      "max_investment_recovered_within_year": 2808957.97
+    },
+    {
+      "name": "граница цели: сколько новых номеров нужно с июля",
+      "additional_paid_months_retention": 247.3,
+      "additional_paid_months_new_numbers": 12493.7,
+      "additional_paid_months_total": 12741.0,
+      "gross_contribution": 6370517.49,
+      "direct_costs_in_year": 360000.0,
+      "net_contribution": 6010517.49,
+      "projected_gross_profit": 285010517.49,
+      "gap_to_target": -10517.49,
+      "paid_months_required_for_target": 12720.0,
+      "max_investment_recovered_within_year": 6010517.49
+    },
+    {
+      "name": "ориентир второго года: услуга работает все 12 месяцев",
+      "additional_paid_months_retention": 2117.6,
+      "additional_paid_months_new_numbers": 2923.1,
+      "additional_paid_months_total": 5040.7,
+      "gross_contribution": 2520341.54,
+      "direct_costs_in_year": 720000.0,
+      "net_contribution": 1800341.54,
+      "projected_gross_profit": 280800341.54,
+      "gap_to_target": 4199658.46,
+      "paid_months_required_for_target": 13440.0,
+      "max_investment_recovered_within_year": 1800341.54
+    }
+  ],
+  "interpretation": "Сценарный расчёт на допущениях, а не прогноз. Стоимость разработки учитывается отдельно; деньги после конца планового года в расчёт не входят.",
+  "generated_at_utc": "2026-11-22T14:05:07+00:00"
+}

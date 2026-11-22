@@ -1,0 +1,46 @@
+{
+  "input": "demo\\case\\data\\retention.csv",
+  "rows": 12,
+  "excluded_non_numeric": 0,
+  "excluded_missing_group": 0,
+  "group_column": "group",
+  "metric_column": "retained",
+  "key_columns": [
+    "week"
+  ],
+  "unit": "share",
+  "period": "week 4 retention; weekly aggregates",
+  "observation_unit": "week-group aggregate; not users",
+  "allowed_range": [
+    0.0,
+    1.0
+  ],
+  "groups": {
+    "control": {
+      "n": 6,
+      "mean": 0.38666666666666666,
+      "min": 0.36,
+      "max": 0.42,
+      "sample_stdev": 0.02160246899469287,
+      "ci95_normal_approx": null
+    },
+    "test": {
+      "n": 6,
+      "mean": 0.445,
+      "min": 0.42,
+      "max": 0.47,
+      "sample_stdev": 0.01870828693386971,
+      "ci95_normal_approx": null
+    }
+  },
+  "contrast": "test minus control",
+  "difference": 0.05833333333333335,
+  "difference_ci95_normal_approx": null,
+  "uncertainty": {
+    "status": "not_estimated",
+    "reason": "Независимость наблюдений и пользовательский знаменатель не подтверждены; разброс строк не является доверительным интервалом для пользователей"
+  },
+  "warnings": [],
+  "interpretation": "Описательная разница средних строк. Результат не является причинным эффектом или оценкой неопределённости пользовательской метрики без подтверждённого дизайна.",
+  "generated_at_utc": "2026-11-17T11:23:28+00:00"
+}

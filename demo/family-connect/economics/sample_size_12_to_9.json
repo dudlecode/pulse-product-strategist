@@ -1,0 +1,16 @@
+{
+  "baseline_share": 0.12,
+  "target_share": 0.09,
+  "absolute_difference_pp": -3.0,
+  "relative_change": -0.25,
+  "alpha_two_sided": 0.05,
+  "power": 0.8,
+  "design_effect": 1.0,
+  "units_per_group": 1636,
+  "units_total": 3272,
+  "required_new_units_per_week": 546,
+  "recruitment_weeks": 6,
+  "formula": "n = (z_(1-alpha/2) + z_power)^2 * (p1*(1-p1) + p2*(1-p2)) / (p1-p2)^2 * design_effect",
+  "interpretation": "Плановая оценка для двух независимых групп и одного события на единицу. Единица — то, что распределяют случайно (например, семейная группа). Базовая доля должна быть измерена до запуска; расчёт не подтверждает дизайн и не заменяет аналитика.",
+  "generated_at_utc": "2026-11-22T13:55:56+00:00"
+}

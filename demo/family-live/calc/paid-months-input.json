@@ -1,0 +1,106 @@
+{
+  "data_status": "assumptions_not_measured: отток, затраты, число номеров в группе и доля новых номеров — допущения агента; из брифа только ставка 500 руб., 279 и 285 млн руб., числа групп и владельцев",
+  "currency": "RUB",
+  "margin_per_paid_month": 500,
+  "plan_year_months": 12,
+  "baseline_gross_profit": 279000000,
+  "target_gross_profit": 285000000,
+  "scenarios": [
+    {
+      "name": "A. Оставить как есть",
+      "baseline_monthly_churn": 0.02,
+      "treated_monthly_churn": 0.02,
+      "monthly_direct_cost": 0,
+      "retention_cohorts": [],
+      "new_number_cohorts": []
+    },
+    {
+      "name": "B1 семьи, основной: пилот с мес. 5 (750 групп x 2 номера), расширение с мес. 8 на остальные из 6500 групп x 2; отток 2,0% -> 1,7%",
+      "baseline_monthly_churn": 0.02,
+      "treated_monthly_churn": 0.017,
+      "monthly_direct_cost": 40000,
+      "direct_cost_start_month": 5,
+      "retention_cohorts": [
+        {"start_month": 5, "numbers": 1500},
+        {"start_month": 8, "numbers": 11500}
+      ],
+      "new_number_cohorts": []
+    },
+    {
+      "name": "B1 семьи, слабый: те же когорты; отток 2,0% -> 1,9%",
+      "baseline_monthly_churn": 0.02,
+      "treated_monthly_churn": 0.019,
+      "monthly_direct_cost": 40000,
+      "direct_cost_start_month": 5,
+      "retention_cohorts": [
+        {"start_month": 5, "numbers": 1500},
+        {"start_month": 8, "numbers": 11500}
+      ],
+      "new_number_cohorts": []
+    },
+    {
+      "name": "B1 семьи, сильный: 3 номера в группе; отток 2,0% -> 1,5%; 600 новых для оператора номеров (мес. 8 и 10)",
+      "baseline_monthly_churn": 0.02,
+      "treated_monthly_churn": 0.015,
+      "monthly_direct_cost": 40000,
+      "direct_cost_start_month": 5,
+      "retention_cohorts": [
+        {"start_month": 5, "numbers": 2250},
+        {"start_month": 8, "numbers": 17250}
+      ],
+      "new_number_cohorts": [
+        {"start_month": 8, "numbers": 300},
+        {"start_month": 10, "numbers": 300}
+      ]
+    },
+    {
+      "name": "B2 владельцы, основной: 800 владельцев x 2 номера (пилот мес. 5 — половина, мес. 8 — остальные); отток 2,0% -> 1,7%",
+      "baseline_monthly_churn": 0.02,
+      "treated_monthly_churn": 0.017,
+      "monthly_direct_cost": 40000,
+      "direct_cost_start_month": 5,
+      "retention_cohorts": [
+        {"start_month": 5, "numbers": 800},
+        {"start_month": 8, "numbers": 800}
+      ],
+      "new_number_cohorts": []
+    },
+    {
+      "name": "B2 владельцы, сильный: те же когорты; отток 2,0% -> 1,5%; 1000 новых для оператора номеров (мес. 8 и 10)",
+      "baseline_monthly_churn": 0.02,
+      "treated_monthly_churn": 0.015,
+      "monthly_direct_cost": 40000,
+      "direct_cost_start_month": 5,
+      "retention_cohorts": [
+        {"start_month": 5, "numbers": 800},
+        {"start_month": 8, "numbers": 800}
+      ],
+      "new_number_cohorts": [
+        {"start_month": 8, "numbers": 500},
+        {"start_month": 10, "numbers": 500}
+      ]
+    },
+    {
+      "name": "B3 общий семейный кабинет: эффект сильнее (2,0% -> 1,5%), но запуск на все 13000 номеров только с мес. 10",
+      "baseline_monthly_churn": 0.02,
+      "treated_monthly_churn": 0.015,
+      "monthly_direct_cost": 80000,
+      "direct_cost_start_month": 10,
+      "retention_cohorts": [
+        {"start_month": 10, "numbers": 13000}
+      ],
+      "new_number_cohorts": []
+    },
+    {
+      "name": "Граница: сколько новых для оператора номеров с мес. 7 закрывает разрыв без удержания (2200 номеров, расходы 40 тыс./мес.)",
+      "baseline_monthly_churn": 0.02,
+      "treated_monthly_churn": 0.02,
+      "monthly_direct_cost": 40000,
+      "direct_cost_start_month": 5,
+      "retention_cohorts": [],
+      "new_number_cohorts": [
+        {"start_month": 7, "numbers": 2200}
+      ]
+    }
+  ]
+}

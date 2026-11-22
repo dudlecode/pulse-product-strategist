@@ -1,0 +1,6 @@
+metric,unit,base_year_plan,base_year_estimate,plan_year_no_change,plan_year_target_min
+gross_profit,mln_rub_per_year,282,275,279,285
+active_family_groups_last_month,groups,5000,4000,5000,8000
+connected_family_groups_year_end,groups,7500,6500,8000,12000
+connected_multi_number_owners_year_end,owners,1000,800,1000,2000
+groups_activated_in_14_days_last_quarter,share,0.50,0.42,0.45,0.60

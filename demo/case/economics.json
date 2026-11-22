@@ -1,0 +1,19 @@
+{
+  "data_status": "synthetic",
+  "currency": "RUB",
+  "starts_per_month": 10000,
+  "baseline_activation": 0.4,
+  "margin_per_activation": 500,
+  "one_time_cost": 600000,
+  "monthly_support_cost": 50000,
+  "horizon_months": 6,
+  "uplifts": [0.01, 0.03, 0.05],
+  "assumption_notes": {
+    "starts_per_month": "Синтетический eligible-трафик для демонстрации чувствительности, не фактический трафик МегаФона",
+    "baseline_activation": "Синтетическая доля активации за 24 часа; не рассчитана из retention.csv",
+    "margin_per_activation": "Синтетическая маржинальная ценность дополнительной активации за выбранный горизонт, не выручка",
+    "one_time_cost": "Синтетическая полная стоимость дизайна, разработки, аналитики и запуска",
+    "monthly_support_cost": "Синтетические дополнительные расходы на поддержку в месяц",
+    "horizon_months": "Демонстрационный горизонт окупаемости; владелец должен утвердить его до решения"
+  }
+}

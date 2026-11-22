@@ -1,0 +1,125 @@
+{
+  "input": "demo/family-live/calc/paid-months-input.json",
+  "data_status": "assumptions_not_measured: отток, затраты, число номеров в группе и доля новых номеров — допущения агента; из брифа только ставка 500 руб., 279 и 285 млн руб., числа групп и владельцев",
+  "currency": "RUB",
+  "assumptions": {
+    "margin_per_paid_month": 500.0,
+    "plan_year_months": 12,
+    "baseline_gross_profit": 279000000.0,
+    "target_gross_profit": 285000000.0
+  },
+  "formulas": {
+    "retention_paid_months": "sum по когортам и месяцам k=1..(T-start+1): numbers * ((1-treated_churn)^k - (1-baseline_churn)^k)",
+    "new_number_paid_months": "sum по когортам и месяцам k=0..(T-start): numbers * (1-treated_churn)^k",
+    "net_contribution": "paid_months_total * margin_per_paid_month + other_annual_contribution - monthly_direct_cost * (T - direct_cost_start_month + 1)",
+    "paid_months_required_for_target": "(target_gross_profit - baseline_gross_profit - other_annual_contribution + direct_costs_in_year) / margin_per_paid_month"
+  },
+  "scenarios": [
+    {
+      "name": "A. Оставить как есть",
+      "additional_paid_months_retention": 0.0,
+      "additional_paid_months_new_numbers": 0.0,
+      "additional_paid_months_total": 0.0,
+      "gross_contribution": 0.0,
+      "direct_costs_in_year": 0.0,
+      "net_contribution": 0.0,
+      "projected_gross_profit": 279000000.0,
+      "gap_to_target": 6000000.0,
+      "paid_months_required_for_target": 12000.0,
+      "max_investment_recovered_within_year": 0.0
+    },
+    {
+      "name": "B1 семьи, основной: пилот с мес. 5 (750 групп x 2 номера), расширение с мес. 8 на остальные из 6500 групп x 2; отток 2,0% -> 1,7%",
+      "additional_paid_months_retention": 641.1,
+      "additional_paid_months_new_numbers": 0.0,
+      "additional_paid_months_total": 641.1,
+      "gross_contribution": 320540.23,
+      "direct_costs_in_year": 320000.0,
+      "net_contribution": 540.23,
+      "projected_gross_profit": 279000540.23,
+      "gap_to_target": 5999459.77,
+      "paid_months_required_for_target": 12640.0,
+      "max_investment_recovered_within_year": 540.23
+    },
+    {
+      "name": "B1 семьи, слабый: те же когорты; отток 2,0% -> 1,9%",
+      "additional_paid_months_retention": 213.0,
+      "additional_paid_months_new_numbers": 0.0,
+      "additional_paid_months_total": 213.0,
+      "gross_contribution": 106510.46,
+      "direct_costs_in_year": 320000.0,
+      "net_contribution": -213489.54,
+      "projected_gross_profit": 278786510.46,
+      "gap_to_target": 6213489.54,
+      "paid_months_required_for_target": 12640.0,
+      "max_investment_recovered_within_year": 0.0
+    },
+    {
+      "name": "B1 семьи, сильный: 3 номера в группе; отток 2,0% -> 1,5%; 600 новых для оператора номеров (мес. 8 и 10)",
+      "additional_paid_months_retention": 1607.8,
+      "additional_paid_months_new_numbers": 2342.2,
+      "additional_paid_months_total": 3950.0,
+      "gross_contribution": 1975001.76,
+      "direct_costs_in_year": 320000.0,
+      "net_contribution": 1655001.76,
+      "projected_gross_profit": 280655001.76,
+      "gap_to_target": 4344998.24,
+      "paid_months_required_for_target": 12640.0,
+      "max_investment_recovered_within_year": 1655001.76
+    },
+    {
+      "name": "B2 владельцы, основной: 800 владельцев x 2 номера (пилот мес. 5 — половина, мес. 8 — остальные); отток 2,0% -> 1,7%",
+      "additional_paid_months_retention": 113.5,
+      "additional_paid_months_new_numbers": 0.0,
+      "additional_paid_months_total": 113.5,
+      "gross_contribution": 56752.53,
+      "direct_costs_in_year": 320000.0,
+      "net_contribution": -263247.47,
+      "projected_gross_profit": 278736752.53,
+      "gap_to_target": 6263247.47,
+      "paid_months_required_for_target": 12640.0,
+      "max_investment_recovered_within_year": 0.0
+    },
+    {
+      "name": "B2 владельцы, сильный: те же когорты; отток 2,0% -> 1,5%; 1000 новых для оператора номеров (мес. 8 и 10)",
+      "additional_paid_months_retention": 190.0,
+      "additional_paid_months_new_numbers": 3903.7,
+      "additional_paid_months_total": 4093.7,
+      "gross_contribution": 2046839.7,
+      "direct_costs_in_year": 320000.0,
+      "net_contribution": 1726839.7,
+      "projected_gross_profit": 280726839.7,
+      "gap_to_target": 4273160.3,
+      "paid_months_required_for_target": 12640.0,
+      "max_investment_recovered_within_year": 1726839.7
+    },
+    {
+      "name": "B3 общий семейный кабинет: эффект сильнее (2,0% -> 1,5%), но запуск на все 13000 номеров только с мес. 10",
+      "additional_paid_months_retention": 381.0,
+      "additional_paid_months_new_numbers": 0.0,
+      "additional_paid_months_total": 381.0,
+      "gross_contribution": 190480.06,
+      "direct_costs_in_year": 240000.0,
+      "net_contribution": -49519.94,
+      "projected_gross_profit": 278950480.06,
+      "gap_to_target": 6049519.94,
+      "paid_months_required_for_target": 12480.0,
+      "max_investment_recovered_within_year": 0.0
+    },
+    {
+      "name": "Граница: сколько новых для оператора номеров с мес. 7 закрывает разрыв без удержания (2200 номеров, расходы 40 тыс./мес.)",
+      "additional_paid_months_retention": 0.0,
+      "additional_paid_months_new_numbers": 12557.3,
+      "additional_paid_months_total": 12557.3,
+      "gross_contribution": 6278669.05,
+      "direct_costs_in_year": 320000.0,
+      "net_contribution": 5958669.05,
+      "projected_gross_profit": 284958669.05,
+      "gap_to_target": 41330.95,
+      "paid_months_required_for_target": 12640.0,
+      "max_investment_recovered_within_year": 5958669.05
+    }
+  ],
+  "interpretation": "Сценарный расчёт на допущениях, а не прогноз. Стоимость разработки учитывается отдельно; деньги после конца планового года в расчёт не входят.",
+  "generated_at_utc": "2026-11-22T14:22:31+00:00"
+}

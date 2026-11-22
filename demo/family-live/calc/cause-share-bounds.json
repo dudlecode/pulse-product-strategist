@@ -1,0 +1,22 @@
+{
+  "note": "Иллюстрация границ, не измерение. Вход — словесная оценка из демонстрационного ввода роли «аналитик» (E25): исчерпанная доля ≈ 1/4 перебоев в обращениях в поддержку; неоплата — самая частая причина. Счётчики обращений и доля неоплаты не сообщены.",
+  "input": {
+    "exhausted_share_of_support_reported_outages": 0.25,
+    "nonpayment_is_most_frequent": true
+  },
+  "formulas": {
+    "rest": "1 - exhausted",
+    "nonpayment_upper": "rest (если других причин нет)",
+    "nonpayment_lower_strict": "exhausted (неоплата чаще исчерпания)",
+    "nonpayment_lower_if_k_other_causes": "rest / k (самая частая из k причин, делящих остаток)"
+  },
+  "result_pct": {
+    "exhausted": 25.0,
+    "all_other_causes": 75.0,
+    "nonpayment_upper": 75.0,
+    "nonpayment_lower_strict": 25.0,
+    "nonpayment_lower_if_2_other_causes": 37.5,
+    "nonpayment_lower_if_3_other_causes": 25.0
+  },
+  "b1_ceiling": "Сигнал об исчерпании доли адресует не более ~25 % перебоев, дошедших до поддержки; для всех перебоев доля неизвестна (E26)."
+}

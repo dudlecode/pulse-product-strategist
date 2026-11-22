@@ -1,0 +1,50 @@
+{
+  "coverage_households_start": 0.065,
+  "coverage_households_nochange": 0.08,
+  "coverage_households_target": 0.12,
+  "coverage_owners_start": 0.02,
+  "coverage_owners_nochange": 0.025,
+  "coverage_owners_target": 0.05,
+  "active_share_nochange": 0.625,
+  "active_share_needed_at_target": 0.6666666666666666,
+  "gap_groups": 4000,
+  "gap_active": 3000,
+  "gap_owners": 1000,
+  "gap_activation_pp": 15.0,
+  "gap_profit_mln": 6,
+  "paid_months_for_gap_no_costs": 12000.0,
+  "min_numbers_family_nochange": 16000,
+  "min_numbers_family_start": 13000,
+  "min_numbers_owners_nochange": 2000,
+  "min_numbers_owners_start": 1600,
+  "ceiling_one_extra_month_all_family_numbers_rub": 8000000,
+  "ceiling_one_extra_month_all_owner_numbers_rub": 1000000,
+  "b1_base": {
+    "groups_end": 8600,
+    "active_last_month": 6020,
+    "gap_groups_to_target": 3400,
+    "gap_active_to_target": 1980,
+    "coverage_households": 0.086,
+    "activation": 0.5,
+    "gap_activation_pp": 10.0
+  },
+  "b1_weak": {
+    "groups_end": 8100,
+    "active_last_month": 5184,
+    "gap_groups_to_target": 3900,
+    "gap_active_to_target": 2816,
+    "coverage_households": 0.081,
+    "activation": 0.45,
+    "gap_activation_pp": 15.0
+  },
+  "profit_mln_by_scenario": {
+    "A. Оставить как есть": 279.0,
+    "B1 семьи, основной: пилот с мес. 5 (750 групп x 2 номера), расширение ": 279.001,
+    "B1 семьи, слабый: те же когорты; отток 2,0% -> 1,9%": 278.787,
+    "B1 семьи, сильный: 3 номера в группе; отток 2,0% -> 1,5%; 600 новых дл": 280.655,
+    "B2 владельцы, основной: 800 владельцев x 2 номера (пилот мес. 5 — поло": 278.737,
+    "B2 владельцы, сильный: те же когорты; отток 2,0% -> 1,5%; 1000 новых д": 280.727,
+    "B3 общий семейный кабинет: эффект сильнее (2,0% -> 1,5%), но запуск на": 278.95,
+    "Граница: сколько новых для оператора номеров с мес. 7 закрывает разрыв": 284.959
+  }
+}

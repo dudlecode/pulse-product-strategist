@@ -1,0 +1,235 @@
+{
+  "data_status": "assumption",
+  "currency": "RUB",
+  "margin_per_paid_month": 500,
+  "plan_year_months": 12,
+  "baseline_gross_profit": 279000000,
+  "target_gross_profit": 285000000,
+  "assumption_notes": {
+    "margin_per_paid_month": "Учебная ставка из брифа (E6): 500 руб. валовой прибыли за дополнительный оплаченный месяц номера",
+    "baseline_gross_profit": "Прогноз «без изменений» из брифа (E2)",
+    "retention_cohorts": "A1*A2: 6 500 групп x 80 % совместимых тарифов x 3 номера = 15 600 номеров. A10: пилотный тариф — 30 % из них, половина в группе с сигналом = 2 340 номеров с июля; остальные 13 260 — с октября, если пилот даст основание расширять",
+    "baseline_monthly_churn": "A6: допущение 2,0 % номеров в месяц; в брифе не дано",
+    "treated_monthly_churn": "A7: допущение об эффекте; проверяется по платежам групп сравнения (U5)",
+    "new_number_cohorts": "A8: номера, новые для оператора, которые приводит приглашение в группу, а не сигнал. Это отдельный рычаг; доля неизвестна (U6)",
+    "monthly_direct_cost": "A9: уведомления и поддержка с июля, после разработки во II квартале; смета не подтверждена (U7)",
+    "development_cost": "В расчёт не входит: стоимость человеко-месяца неизвестна (U7)",
+    "scenario_second_year": "Последний сценарий не относится к плановому году: он показывает годовой темп; базовая прибыль взята та же только для сопоставимости"
+  },
+  "scenarios": [
+    {
+      "name": "основной: пилот с июля, все совместимые тарифы с октября",
+      "retention_cohorts": [
+        {
+          "start_month": 7,
+          "numbers": 2340
+        },
+        {
+          "start_month": 10,
+          "numbers": 13260
+        }
+      ],
+      "treated_monthly_churn": 0.018,
+      "new_number_cohorts": [
+        {
+          "start_month": 10,
+          "numbers": 40
+        },
+        {
+          "start_month": 11,
+          "numbers": 40
+        },
+        {
+          "start_month": 12,
+          "numbers": 40
+        }
+      ],
+      "baseline_monthly_churn": 0.02,
+      "monthly_direct_cost": 60000,
+      "direct_cost_start_month": 7
+    },
+    {
+      "name": "менее благоприятный: слабый эффект",
+      "retention_cohorts": [
+        {
+          "start_month": 7,
+          "numbers": 2340
+        },
+        {
+          "start_month": 10,
+          "numbers": 13260
+        }
+      ],
+      "treated_monthly_churn": 0.0195,
+      "new_number_cohorts": [
+        {
+          "start_month": 10,
+          "numbers": 10
+        },
+        {
+          "start_month": 11,
+          "numbers": 10
+        },
+        {
+          "start_month": 12,
+          "numbers": 10
+        }
+      ],
+      "baseline_monthly_churn": 0.02,
+      "monthly_direct_cost": 60000,
+      "direct_cost_start_month": 7
+    },
+    {
+      "name": "нулевой эффект: только расходы",
+      "retention_cohorts": [
+        {
+          "start_month": 7,
+          "numbers": 2340
+        },
+        {
+          "start_month": 10,
+          "numbers": 13260
+        }
+      ],
+      "treated_monthly_churn": 0.02,
+      "new_number_cohorts": [],
+      "baseline_monthly_churn": 0.02,
+      "monthly_direct_cost": 60000,
+      "direct_cost_start_month": 7
+    },
+    {
+      "name": "только один тариф: расширения нет",
+      "retention_cohorts": [
+        {
+          "start_month": 7,
+          "numbers": 2340
+        }
+      ],
+      "treated_monthly_churn": 0.018,
+      "new_number_cohorts": [],
+      "baseline_monthly_churn": 0.02,
+      "monthly_direct_cost": 60000,
+      "direct_cost_start_month": 7
+    },
+    {
+      "name": "предел удержания: отток падает до нуля на всех номерах с июля",
+      "retention_cohorts": [
+        {
+          "start_month": 7,
+          "numbers": 15600
+        }
+      ],
+      "treated_monthly_churn": 0.0,
+      "new_number_cohorts": [],
+      "baseline_monthly_churn": 0.02,
+      "monthly_direct_cost": 60000,
+      "direct_cost_start_month": 7
+    },
+    {
+      "name": "граница цели: сколько новых номеров нужно с июля",
+      "retention_cohorts": [
+        {
+          "start_month": 7,
+          "numbers": 2340
+        },
+        {
+          "start_month": 10,
+          "numbers": 13260
+        }
+      ],
+      "treated_monthly_churn": 0.018,
+      "new_number_cohorts": [
+        {
+          "start_month": 7,
+          "numbers": 613
+        },
+        {
+          "start_month": 8,
+          "numbers": 613
+        },
+        {
+          "start_month": 9,
+          "numbers": 613
+        },
+        {
+          "start_month": 10,
+          "numbers": 613
+        },
+        {
+          "start_month": 11,
+          "numbers": 613
+        },
+        {
+          "start_month": 12,
+          "numbers": 613
+        }
+      ],
+      "baseline_monthly_churn": 0.02,
+      "monthly_direct_cost": 60000,
+      "direct_cost_start_month": 7
+    },
+    {
+      "name": "ориентир второго года: услуга работает все 12 месяцев",
+      "retention_cohorts": [
+        {
+          "start_month": 1,
+          "numbers": 15600
+        }
+      ],
+      "baseline_monthly_churn": 0.02,
+      "treated_monthly_churn": 0.018,
+      "new_number_cohorts": [
+        {
+          "start_month": 1,
+          "numbers": 40
+        },
+        {
+          "start_month": 2,
+          "numbers": 40
+        },
+        {
+          "start_month": 3,
+          "numbers": 40
+        },
+        {
+          "start_month": 4,
+          "numbers": 40
+        },
+        {
+          "start_month": 5,
+          "numbers": 40
+        },
+        {
+          "start_month": 6,
+          "numbers": 40
+        },
+        {
+          "start_month": 7,
+          "numbers": 40
+        },
+        {
+          "start_month": 8,
+          "numbers": 40
+        },
+        {
+          "start_month": 9,
+          "numbers": 40
+        },
+        {
+          "start_month": 10,
+          "numbers": 40
+        },
+        {
+          "start_month": 11,
+          "numbers": 40
+        },
+        {
+          "start_month": 12,
+          "numbers": 40
+        }
+      ],
+      "monthly_direct_cost": 60000,
+      "direct_cost_start_month": 1
+    }
+  ]
+}

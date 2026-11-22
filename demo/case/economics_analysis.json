@@ -1,0 +1,50 @@
+{
+  "input": "demo\\case\\economics.json",
+  "data_status": "synthetic",
+  "currency": "RUB",
+  "assumptions": {
+    "starts_per_month": 10000.0,
+    "baseline_activation": 0.4,
+    "margin_per_activation": 500.0,
+    "one_time_cost": 600000.0,
+    "monthly_support_cost": 50000.0,
+    "horizon_months": 6.0
+  },
+  "formulas": {
+    "monthly_net_after_support": "starts_per_month * absolute_uplift * margin_per_activation - monthly_support_cost",
+    "horizon_net_after_one_time_cost": "monthly_net_after_support * horizon_months - one_time_cost",
+    "break_even_absolute_uplift": "(one_time_cost / horizon_months + monthly_support_cost) / (starts_per_month * margin_per_activation)"
+  },
+  "break_even_absolute_uplift": 0.03,
+  "scenarios": [
+    {
+      "absolute_uplift": 0.01,
+      "uplift_percentage_points": 1.0,
+      "incremental_activations_per_month": 100.0,
+      "monthly_gross_value": 50000.0,
+      "monthly_net_after_support": 0.0,
+      "horizon_net_after_one_time_cost": -600000.0,
+      "payback_months": null
+    },
+    {
+      "absolute_uplift": 0.03,
+      "uplift_percentage_points": 3.0,
+      "incremental_activations_per_month": 300.0,
+      "monthly_gross_value": 150000.0,
+      "monthly_net_after_support": 100000.0,
+      "horizon_net_after_one_time_cost": 0.0,
+      "payback_months": 6.0
+    },
+    {
+      "absolute_uplift": 0.05,
+      "uplift_percentage_points": 5.0,
+      "incremental_activations_per_month": 500.0,
+      "monthly_gross_value": 250000.0,
+      "monthly_net_after_support": 200000.0,
+      "horizon_net_after_one_time_cost": 600000.0,
+      "payback_months": 3.0
+    }
+  ],
+  "interpretation": "Сценарный расчёт, а не прогноз или причинный эффект. Использовать фактические значения только после подтверждения определений, периода и полной стоимости.",
+  "generated_at_utc": "2026-11-17T11:23:29+00:00"
+}

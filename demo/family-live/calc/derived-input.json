@@ -1,0 +1,12 @@
+{
+  "note": "Входы из брифа (стр. 3, 6, 9) и допущения агента для предварительного прогноза B1; допущения помечены assumption_*",
+  "addressable_households": 100000, "addressable_owners": 40000,
+  "groups_start": 6500, "groups_nochange": 8000, "groups_target": 12000,
+  "active_nochange": 5000, "active_target": 8000,
+  "owners_start": 800, "owners_nochange": 1000, "owners_target": 2000,
+  "activation_nochange": 0.45, "activation_target": 0.60,
+  "profit_nochange_mln": 279, "profit_target_mln": 285, "margin_per_paid_month": 500,
+  "min_numbers_per_group": 2, "min_numbers_per_owner": 2,
+  "assumption_b1_base": {"groups_end": 8600, "active_share": 0.70, "activation": 0.50},
+  "assumption_b1_weak": {"groups_end": 8100, "active_share": 0.64, "activation": 0.45}
+}
